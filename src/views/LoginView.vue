@@ -64,7 +64,8 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: '123456'
+        // password: '123456'
+        password: ''
       },
       loading: false,
       // apiBaseUrl: process.env.VUE_APP_API_BASE_URL
