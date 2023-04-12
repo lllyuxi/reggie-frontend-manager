@@ -64,7 +64,7 @@
           <el-form-item label="套餐图片:" class="uploadImg">
             <el-upload
                 class="avatar-uploader"
-                action="http://localhost:8080/common/upload"
+                :action="`${apiUrl}/common/upload`"
                 :show-file-list="false"
                 :on-success="handleAvatarSuccess"
                 :on-change="onChange"
@@ -228,7 +228,8 @@ export default {
       dishListCache: [],
       keyInd: 0,
       searchValue: '',
-      checkedList: []
+      checkedList: [],
+      apiUrl: this.$apiBaseUrl
     }
   },
   computed: {
@@ -296,7 +297,7 @@ export default {
           this.ruleForm = res.data
           this.ruleForm.status = res.data.status === '1'
           this.ruleForm.price = res.data.price / 100
-          this.imageUrl = `http://localhost:8080/common/download?name=${res.data.image}`
+          this.imageUrl = `${this.apiUrl}/common/download?name=${res.data.image}`
           this.checkList = res.data.setmealDishes
           this.dishTable = res.data.setmealDishes
           this.ruleForm.idType = res.data.categoryId
@@ -439,7 +440,7 @@ export default {
       if (response.code === 0 && response.msg === '未登录') {
         window.top.location.href = '/backend/page/login/login.html'
       } else {
-        this.imageUrl = `http://localhost:8080/common/download?name=${response.data}`
+        this.imageUrl = `${this.apiUrl}/common/download?name=${response.data}`
         this.ruleForm.image = response.data
       }
     },

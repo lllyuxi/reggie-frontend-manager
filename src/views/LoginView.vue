@@ -66,7 +66,8 @@ export default {
         username: 'admin',
         password: '123456'
       },
-      loading: false
+      loading: false,
+      // apiBaseUrl: process.env.VUE_APP_API_BASE_URL
     };
   },
   computed: {

@@ -46,7 +46,7 @@
           <template slot-scope="{ row }">
             <el-image style="width: auto; height: 40px; border:none;cursor: pointer;"
                       :src="getImage(row.image)"
-                      :preview-src-list="[ `http://localhost:8080/common/download?name=${row.image}` ]">
+                      :preview-src-list="[ `${apiUrl}/common/download?name=${row.image}` ]">
               <div slot="error" class="image-slot">
                 <img src="@/images/noImg.png" style="width: auto; height: 40px; border:none;">
               </div>
@@ -133,7 +133,7 @@ export default {
       tableData: [],
       dishState: '',
       checkList: [],
-      apiUrl: 'http://localhost:8080/'
+      apiUrl: this.$apiBaseUrl
     }
   },
   computed: {},
@@ -159,7 +159,7 @@ export default {
       })
     },
     getImage(image) {
-      return `http://localhost:8080/common/download?name=${image}`
+      return `${this.apiUrl}/common/download?name=${image}`
     },
     handleQuery() {
       this.page = 1;

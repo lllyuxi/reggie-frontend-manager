@@ -228,7 +228,8 @@ export default {
         'status': true,
         categoryId: ''
       },
-      mak: false
+      mak: false,
+      apiUrl: this.$apiBaseUrl
     }
   },
   computed: {
@@ -294,7 +295,7 @@ export default {
           console.log('this.dishFlavors', this.dishFlavors)
           // this.ruleForm.id = res.data.data.categoryId
           // this.imageUrl = res.data.data.image
-          this.imageUrl = `http://localhost:8080/common/download?name=${res.data.image}`
+          this.imageUrl = `${this.apiUrl}/common/download?name=${res.data.image}`
         } else {
           this.$message.error(res.msg || '操作失败')
         }
@@ -462,7 +463,7 @@ export default {
       if (response.code === 0 && response.msg === '未登录') {
         this.$router.push('/')
       } else {
-        this.imageUrl = `http://localhost:8080/common/download?name=${response.data}`
+        this.imageUrl = `${this.apiUrl}/common/download?name=${response.data}`
         this.ruleForm.image = response.data
       }
     },
