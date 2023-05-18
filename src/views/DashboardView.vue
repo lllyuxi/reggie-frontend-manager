@@ -3,8 +3,7 @@
     <!-- sidebar -->
     <div class="sidebar-container">
       <div class="logo">
-        <!-- <img src="images/logo.png" width="122.5" alt="" /> -->
-        <img src="@/images/login/login-logo.png" alt="" style="width: 117px; height: 32px"/>
+        <img src="@/images/login/login-logo.png" alt="" style="width: 116px; height: 32px"/>
       </div>
       <!-- 带有滚动条的容器-->
       <el-scrollbar wrap-class="scrollbar-wrapper">
@@ -145,7 +144,7 @@ export default {
       this.closeLoading()
     },
     goBack() {
-      // 返回上一页
+      // 针对add，edit这些页面，返回上一页
       const menu = this.menuList.find(item => item.index === this.menuActived)
       this.handleSelect(menu, false)
     },

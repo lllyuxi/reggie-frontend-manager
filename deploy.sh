@@ -13,7 +13,7 @@ echo "打包完成."
 # 2. ssh连接远程服务器，清空目标目录
 REMOTE_USER="root"
 REMOTE_HOST="49.232.144.133"
-REMOTE_PATH="/usr/share/nginx/manager"
+REMOTE_PATH="/root/frontend/manager"
 
 echo "正在连接远程服务器并清空目标目录..."
 ssh ${REMOTE_USER}@${REMOTE_HOST} "rm -rf ${REMOTE_PATH}/*"
